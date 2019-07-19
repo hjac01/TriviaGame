@@ -1,20 +1,31 @@
+var timeleft = 10;
+var downloadTimer = setInterval(function(){
+  document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+  timeleft -= 1;
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    document.getElementById("countdown").innerHTML = "Times Up!"
+  }
+}, 1000);
+
+
 var score=0;
 
 var quizQuestions = [
     {
         question:"What is the name of Joey's Stuffed Penguin?",
         answers: ["Chandler","Hugsy","Janice"],
-        rightAnswer: "b",
+        
     },
     {
         question:"What caused the fire in Phoebe and Rachel's apartment?",
         answers: ["Monica's turkey","Phoebe's candles","Rachel's hair straightener"],
-        rightAnswer: "c",
+        
     },
     {
         question:"What color was the couch at Central Perk?",
-        answers: ["orange","blue","green"],
-        rightAnswer: "c",
+        answers: ["Orange","Blue","Green"],
+        
     },
     
 ];
@@ -43,9 +54,12 @@ var quizQuestions = [
         if (q2=="Rachel's hair straightener"){
             score ++
         }
-        if (q3=="orange"){
+        if (q3=="Orange"){
             score ++
         }
-        console.log(score)
-        $("#result").append("<h2>" + "you got" + score +"questions correct" + "</h2>")
+        if (timeleft===0){
+            alert("Times Up!");
+        }
+        
+        $("#result").append("<h2>" + "you guessed"  +  score  + "correct" + "</h2>")
     })

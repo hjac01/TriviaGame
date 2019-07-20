@@ -63,7 +63,12 @@ var quizQuestions = [
         }
         if (timeleft===0){
             alert("Times Up!");
+            
+        }else{
+            $("#result").prepend("<h2>" + " you guessed "  +  score  + " right" + "</h2>")
         }
         
-        $("#result").append("<h2>" + "you guessed"  +  score  + "right" + "</h2>")
+        
     })
+
+   

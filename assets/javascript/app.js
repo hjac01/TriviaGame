@@ -32,10 +32,14 @@ var quizQuestions = [
     
     function showQuestions(){
         for(var i=0; i<quizQuestions.length;i++){
-            $("#quiz").append("<h2>"+ quizQuestions[i].question + "</h2>")
+            $("#quiz").append(`<h2>` + quizQuestions[i].question + `</h2>`)
+
             for(var j=0; j<quizQuestions[i].answers.length; j++){
                 $("#quiz").append(`<input type='radio' name=${i} value="${quizQuestions[i].answers[j]}"> ${quizQuestions[i].answers[j]}</input>`)
             }
+            $("#quiz").append(`</div>`)
+
+
         }
        
 
@@ -61,5 +65,5 @@ var quizQuestions = [
             alert("Times Up!");
         }
         
-        $("#result").append("<h2>" + "you guessed"  +  score  + "correct" + "</h2>")
+        $("#result").append("<h2>" + "you guessed"  +  score  + "right" + "</h2>")
     })
